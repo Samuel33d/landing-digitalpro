@@ -17,47 +17,56 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
-  }
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen])
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false)
   }
 
   return (
-    <header className={scrolled ? 'scrolled' : ''}>
-      <div className="container">
-        <div className="header-content">
-          <Link href="#" className="logo">
-            <div className="logo-icon">
-              <HiOutlineLightningBolt size={24} />
-            </div>
-            DigitalPro
-          </Link>
+    <>
+      <header className={scrolled ? 'scrolled' : ''}>
+        <div className="container">
+          <div className="header-content">
+            <Link href="#" className="logo">
+              <div className="logo-icon">
+                <HiOutlineLightningBolt size={24} />
+              </div>
+              DigitalPro
+            </Link>
 
-          {/* Mobile menu button */}
-          <button className="mobile-menu-btn" onClick={toggleMobileMenu} aria-label="Menu">
-            {mobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
-          </button>
+            <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Menu">
+              {mobileMenuOpen ? <HiX size={28} /> : <HiMenu size={28} />}
+            </button>
 
-          {/* Desktop nav */}
-          <nav className="desktop-nav">
-            <Link href="#servicios">Servicios</Link>
-            <Link href="#proceso">Proceso</Link>
-            <Link href="#faq">FAQ</Link>
-            <Link href="#contacto" className="btn btn-primary">Empezar ahora</Link>
-          </nav>
-
-          {/* Mobile nav */}
-          <nav className={`mobile-nav ${mobileMenuOpen ? 'open' : ''}`}>
-            <Link href="#servicios" onClick={closeMobileMenu}>Servicios</Link>
-            <Link href="#proceso" onClick={closeMobileMenu}>Proceso</Link>
-            <Link href="#faq" onClick={closeMobileMenu}>FAQ</Link>
-            <Link href="#contacto" className="btn btn-primary" onClick={closeMobileMenu}>Empezar ahora</Link>
-          </nav>
+            <nav className="desktop-nav">
+              <Link href="#servicios">Servicios</Link>
+              <Link href="#proceso">Proceso</Link>
+              <Link href="#faq">FAQ</Link>
+              <Link href="#contacto" className="btn btn-primary">Empezar ahora</Link>
+            </nav>
+          </div>
         </div>
+      </header>
+
+      {/* Mobile nav overlay - fuera del header */}
+      <div className={`mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}>
+        <nav className="mobile-nav-inner">
+          <Link href="#servicios" onClick={closeMobileMenu}>Servicios</Link>
+          <Link href="#proceso" onClick={closeMobileMenu}>Proceso</Link>
+          <Link href="#faq" onClick={closeMobileMenu}>FAQ</Link>
+          <Link href="#contacto" className="btn btn-primary" onClick={closeMobileMenu}>Empezar ahora</Link>
+        </nav>
       </div>
-    </header>
+    </>
   )
 }
