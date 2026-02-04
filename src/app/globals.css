@@ -1452,6 +1452,24 @@ footer {
     pointer-events: all;
 }
 
+.mobile-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 8px;
+    z-index: 10002;
+    transition: all 0.3s ease;
+}
+
+.mobile-close-btn:hover {
+    color: var(--accent);
+    transform: rotate(90deg);
+}
+
 .mobile-nav-inner {
     display: flex;
     flex-direction: column;

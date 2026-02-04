@@ -60,6 +60,9 @@ export default function Header() {
 
       {/* Mobile nav overlay - fuera del header */}
       <div className={`mobile-overlay ${mobileMenuOpen ? 'open' : ''}`}>
+        <button className="mobile-close-btn" onClick={closeMobileMenu} aria-label="Cerrar menu">
+          <HiX size={32} />
+        </button>
         <nav className="mobile-nav-inner">
           <Link href="#servicios" onClick={closeMobileMenu}>Servicios</Link>
           <Link href="#proceso" onClick={closeMobileMenu}>Proceso</Link>
