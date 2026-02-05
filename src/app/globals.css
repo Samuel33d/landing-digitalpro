@@ -325,32 +325,18 @@ nav a:hover::after {
     padding: 100px 0 40px;
 }
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: rgba(255, 107, 53, 0.15);
-    border: 1px solid rgba(255, 107, 53, 0.3);
-    border-radius: 50px;
-    font-size: 0.9rem;
+.hero-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--accent);
-    margin-bottom: 24px;
-    animation: pulse 2s infinite;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
 }
 
 @keyframes pulse {
     0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
     50% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
-}
-
-.hero-badge::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: blink 1s infinite;
 }
 
 @keyframes blink {

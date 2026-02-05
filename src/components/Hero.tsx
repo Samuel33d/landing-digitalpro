@@ -24,11 +24,9 @@ export default function Hero() {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text">
-            <div className="hero-badge">
-              Agencia de Marketing Digital
-            </div>
-            <h1>Transforma tu negocio en una <span className="glow-text">maquina de ventas</span> digital</h1>
-            <p>Web profesional + SEO + Contenido para redes. Todo lo que necesitas para atraer clientes y multiplicar tus ventas, en un solo pack.</p>
+            <p className="hero-subtitle">Agencia de Marketing Digital</p>
+            <h1>Tu negocio en una <span className="glow-text">maquina de ventas</span></h1>
+            <p>Web + SEO + Redes sociales. Todo lo que necesitas para atraer clientes y multiplicar tus ventas.</p>
             <div className="hero-buttons">
               <Link href="#contacto" className="btn btn-primary">
                 Quiero mi pack digital
